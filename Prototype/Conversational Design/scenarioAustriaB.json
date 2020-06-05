@@ -1,0 +1,313 @@
+{
+  "version": "0.1",
+  "creator": "cui-prt",
+  "format": "cpd-prt",
+  "projectName": "Usability Test-Essen Automotive",
+  "persona": "NA",
+  "modality": "voicefirst",
+  "languageCode": "de",
+  "scenarios": [{
+    "name": "CarSystem:B",
+    "intents": [{
+        "name": "helpIntent",
+        "priority": {
+          "aux": 0
+        },
+        "utterances": ["Hilfe"],
+        "responses": [{
+          "subject": "carHelp",
+          "phrase": "Wie kann ich dir helfen?",
+          "type": "list",
+          "modality": "voicefirst",
+          "tags": ["adorsys", "icon"],
+          "audiofile": "Pickerl_Greeting_QuestionHelp.aiff"
+        }]
+      },
+      {
+        "name": "errorIntent",
+        "priority": {
+          "aux": 0
+        },
+        "utterances": ["Ich verstehe das nicht"],
+        "responses": [{
+          "subject": "carError",
+          "phrase": "Ich habe dich leider nicht verstanden",
+          "type": "list",
+          "modality": "voicefirst",
+          "tags": ["adorsys", "icon"],
+          "audiofile": "Pickerl_error_Error.aiff"
+        }]
+      },
+      {
+        "name": "willkommenIntent",
+        "priority": {
+          "main": 0
+        },
+        "utterances": ["HalloAuto!", "Hi Auto, ich brauche deine Hilfe."],
+        "responses": [{
+            "subject": "HelloCar",
+            "phrase": "Hallo!",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["adorsys", "icon"],
+            "audiofile": "Pickerl_Greeting_Hello.aiff"
+          },
+          {
+            "subject": "HelpCar",
+            "phrase": "Wie kann ich dir weiterhelfen?",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["adorsys", "icon"],
+            "audiofile": "Pickerl_Greeting_QuestionHelp.aiff"
+          }
+        ]
+      },
+      {
+        "name": "IntroPickerlIntent",
+        "priority": {
+          "main": 0
+        },
+        "utterances": [
+          "Ich brauche ein Pickerl.",
+          "Hallo ich möchte bitte ein Mautticket kaufen."
+        ],
+        "responses": [{
+            "subject": "BorderAustria",
+            "phrase": "Ok. Ich sehe du bist gerade Nähe der österreichischen Grenze.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["intro", "austria", "question"],
+            "audiofile": "Pickerl_Austria_BorderAustria.aiff"
+          },
+          {
+            "subject": "QuestionTicketForAustria",
+            "phrase": "Möchtest du ein Mautticket für Österreich haben?",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["intro", "austria", "question"],
+            "audiofile": "Pickerl_Austria_QuestionAustriaTicket.aiff"
+          }
+        ]
+      },
+      {
+        "name": "TimePeriodPickerlIntent",
+        "priority": {
+          "main": 0
+        },
+        "utterances": [
+          "Ja ich möchte ein Ticket bitte.",
+          "Ja ich möchte ein Ticket für 10 Tage bitte.",
+          "Ja. Zeige mir bitte die Zeiträume an."
+        ],
+        "responses": [{
+            "subject": "TimePeriod",
+            "phrase": "Es gibt Tickets für eine Zeitspanne von 10 Tagen, zwei Monaten und einem Jahr.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["timePeriod", "austria"],
+            "audiofile": "Pickerl_TimePeriod_TimeSelection.aiff"
+          },
+          {
+            "subject": "QuestionChoosenTimePeriod",
+            "phrase": "Für welchen Zeitraum möchtest du das Pickerl erwerben?",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["timePeriod", "austria"],
+            "audiofile": "Pickerl_TimePeriod_QuestionTicket.aiff"
+          }
+        ]
+      },
+      {
+        "name": "PricePickerlIntent",
+        "priority": {
+          "main": 0
+        },
+        "utterances": [
+          "Ja ich möchte das Ticket erwerben.",
+          "Ja ich möchte ein Ticket für 10 Tage bitte.",
+          "Wie viel kostet das Ticket?"
+        ],
+        "responses": [{
+            "subject": "Price10Days",
+            "phrase": "Dieses Mautticket hat einen Preis von 9,40 Euro. Möchtest du es erwerben?",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["price", "austria", "pickerl"],
+            "payload": {
+              "durationAmount": "10",
+              "durationUnit": "Tage",
+              "price": "9,40"
+            },
+            "audiofile": "Pickerl_TimePeriod_PickerlPriceDays.aiff"
+          },
+          {
+            "subject": "Price2Months",
+            "phrase": "Dieses Mautticket hat einen Preis von 26,80 Euro. Möchtest du es erwerben?",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["price", "austria", "pickerl"],
+            "payload": {
+              "durationAmount": "2",
+              "durationUnit": "Monate",
+              "price": "26,80"
+            },
+            "audiofile": "Pickerl_TimePeriod_PickerlPriceMonths.aiff"
+          },
+          {
+            "subject": "Price1Year",
+            "phrase": "Dieses Mautticket hat einen Preis von 89,30 Euro. Möchtest du es erwerben?",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["price", "austria", "pickerl"],
+            "payload": {
+              "durationAmount": "1",
+              "durationUnit": "Jahr",
+              "price": "89,30"
+            },
+            "audiofile": "Pickerl_TimePeriod_PickerlPriceYear.aiff"
+          }
+        ]
+      },
+      {
+        "name": "AuthorizationIntent",
+        "priority": {
+          "main": 0
+        },
+        "utterances": [
+          "Ja ich möchte dieses Ticket kaufen",
+          "Bitte führe die Überweisung durch.",
+          "Ich habe nun den Passcode."
+        ],
+        "responses": [{
+            "subject": "PleaseAuthorization",
+            "phrase": "Bitte autorisiere dich nun um nun die Zahlung ausführen zu können. Sag mir Bescheid wenn du den Passcode hast.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["payment", "passcode", "authorization"],
+            "payload": {
+              "firstIconNames": [
+                "london",
+                "rom",
+                "sydney",
+                "NYC",
+                "berlin",
+                "rio",
+                "sanFrancisco",
+                "barcelona"
+              ],
+              "firstNumbers": [21, 1, 41, 3, 2, 13, 4, 12],
+              "secondIconNames": [
+                "wallOfChina",
+                "australia",
+                "easterIsland",
+                "pyramidEgypt",
+                "mexicoPyramid",
+                "japan",
+                "stonehedge",
+                "dutch"
+              ],
+              "secondNumbers": [4, 12, 2, 31, 14, 3, 21, 1]
+            },
+            "audiofile": "Pickerl_Authorization_AuthorizationPhrase.aiff"
+          },
+          {
+            "subject": "FalsePasscodeView",
+            "phrase": "Ups! Dieser Passcode ist falsch.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["false", "passcode", "repetation"],
+            "audiofile": "Pickerl_Authorization_FalsePasscode.aiff"
+          },
+          {
+            "subject": "PleaseAuthorization",
+            "phrase": "Bitte autorisiere dich nun um nun die Zahlung ausführen zu können. Sag mir Bescheid wenn du den Passcode hast.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["payment", "passcode", "authorization"],
+            "payload": {
+              "firstIconNames": [
+                "NYC",
+                "london",
+                "rio",
+                "berlin",
+                "rom",
+                "barcelona",
+                "sydney",
+                "sanFrancisco"
+              ],
+              "firstNumbers": [3, 14, 21, 4, 12, 31, 1, 2],
+              "secondIconNames": [
+                "australia",
+                "mexicoPyramid",
+                "stonehedge",
+                "wallOfChina",
+                "easterIsland",
+                "japan",
+                "dutch",
+                "pyramidEgypt"
+              ],
+              "secondNumbers": [31, 2, 4, 13, 3, 1, 21, 12]
+            },
+            "audiofile": "Pickerl_Authorization_AuthorizationPhrase.aiff"
+          },
+          {
+            "subject": "TellMePasscode",
+            "phrase": "Bitte teile mir den Passcode nun mit.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["loading", "passcode"],
+            "audiofile": "Pickerl_Authorization_TellMePasscode.aiff"
+          }
+        ]
+      },
+      {
+        "name": "AbschlussIntent",
+        "priority": {
+          "main": 0
+        },
+        "utterances": ["Danke für das Ticket!", "Danke."],
+        "responses": [{
+            "subject": "Conformation",
+            "phrase": "Vielen Dank, deine Zahlung wurde getätigt. Du darfst nun offiziell mit dem Kennzeichen LAU CD243 nach Österreich fahren. Dieses Ticket gilt von 20.02.2020 bis 01.03.2020 12:30 Uhr. Viel Spaß und eine gute Fahrt.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["conformation", "payment"],
+            "audiofile": "Pickerl_Abschluss_Conformation.aiff"
+          },
+          {
+            "subject": "YourWelcome",
+            "phrase": "Bitteschön.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["adorsys", "icon"],
+            "audiofile": "Pickerl_Abschluss_YourWelcome.aiff"
+          },
+          {
+            "subject": "NoProblem",
+            "phrase": "Kein Problem.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["adorsys", "icon"],
+            "audiofile": "Pickerl_Abschluss_NoProblem.aiff"
+          },
+          {
+            "subject": "ThankYou",
+            "phrase": "Danke.",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["adorsys", "icon"],
+            "audiofile": "Pickerl_Abschluss_ThankYou.aiff"
+          },
+          {
+            "subject": "NextTime",
+            "phrase": "Falls du noch etwas anderes brauchst, kannst du mir jederzeit Bescheid geben!",
+            "type": "list",
+            "modality": "voicefirst",
+            "tags": ["adorsys", "icon"],
+            "audiofile": "Pickerl_Abschluss_Question.aiff"
+          }
+        ]
+      }
+    ]
+  }]
+}
